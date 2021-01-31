@@ -1,0 +1,19 @@
+.container {
+  padding-top: 5px;
+  /*display: flex;*/
+  display: block;
+  width: content-box;
+  border: darkgray;
+  /*border-color: aquamarine;*/
+background-color: #DEDEDE;
+  width: 600px;
+  height: 1000px;
+}
+
+.edbox {
+  border-color: aqua;
+  border: 2px;
+  border-radius: 5px;
+}
+
+

@@ -1,0 +1,11 @@
+.container {
+  padding-top: 5px;
+  /*display: flex;*/
+  display: block;
+  width: content-box;
+  border: darkgray;
+  /*border-color: aquamarine;*/
+  background-color: #DEDEDE;
+  width: 600px;
+  height: 1000px;
+}
