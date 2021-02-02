@@ -1,38 +1,46 @@
 <div class="container">
-
-
-
 <!--  <br>-->
 <!--  <br>-->
 
   <h2>Profile</h2>
+<!--  <a (click)="">Delete</a>-->
 <!--  <h4>{{user?.firstName}} {{user?.lastName}}</h4>-->
+          <div class="card" style="width: 35rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{user?.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{user?.firstName}} {{user?.lastName}}</h6>
+              <p class="card-text">{{user?.tagline}}</p>
+              <a href="#" class="card-link">Change Password</a>
+              <a href="#" class="card-link">Edit</a>
+            </div>
+          </div>
+
+{{id}}
+          <h3>Education</h3>
+          <a [routerLink] ="['/education', id]" class="card-link">Add Education</a>
+          <div *ngFor="let edu of user?.education">
+
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{edu?.schoolName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{edu?.degree}}</h6>
+                <p class="card-text">{{edu.fieldOfStudy}}</p>
+                <a href="#" class="card-link">Edit</a>
+              </div>
+            </div>
+          </div>
+  <h3>  Skills</h3>
+  <a [routerLink] ="['/skill', id]" class="card-link">Add Skill</a>
+        <div *ngFor="let skill of user?.skills">
+          <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">{{skill.skillName}}</h5>
+          </div>
+
+          </div>
+        </div>
 
 
-  <div class="card" style="width: 35rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{user?.name}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{user?.firstName}} {{user?.lastName}}</h6>
-      <p class="card-text">{{user?.tagline}}</p>
-      <a href="#" class="card-link">Change Password</a>
-      <a href="#" class="card-link">Edit</a>
-    </div>
-  </div>
-
-
-  <h3>Education</h3>
-
-  <div class="card">
-    <div class="card-body">
-      This is some text within a card body.
-      <div *ngFor="let edu of user?.education">
-        <h5 class="card-title">{{edu?.schoolname}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{edu?.degree}}</h6>
-        <p class="card-text">{{edu.fieldOfStudy}}</p>
-        <a href="#" class="card-link">Edit</a>
-      </div>
-    </div>
-  </div>
 
 
 

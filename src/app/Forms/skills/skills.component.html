@@ -1,4 +1,13 @@
-<div class="container">
-  <p>skills works!</p>
+<div class="container-fluid">
+  <h2>Add Skill</h2>
 
+  <form #skillsForm="ngForm" (ngSubmit)="onSubmit(skillsForm.value)" novalidate>
+    {{skillsForm.value | json}}
+    <div class="form-group">
+      <label>Skill</label>
+      <input type="text" #name="ngModel" required class="form-control" name="skillName" [(ngModel)]="skills.skillName">
+    </div>
+
+    <button class="btn-primary">Submit</button>
+  </form>
 </div>

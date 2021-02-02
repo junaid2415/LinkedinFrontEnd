@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EducationComponent} from '../education/education.component';
-import {SkillsComponent} from '../skills/skills.component';
+import {EducationComponent} from '../Forms/education/education.component';
+import {SkillsComponent} from '../Forms/skills/skills.component';
 import {ExperienceComponent} from '../experience/experience.component';
 import {HomeComponent} from '../home/home.component';
 import {ProfileComponent} from '../profile/profile.component';
@@ -13,7 +13,9 @@ const routes: Routes = [
   {path: 'skills' , component: SkillsComponent},
   {path: 'experience', component: ExperienceComponent},
   {path: 'profile/:id', component: ProfileComponent},
-  {path: 'home/test', component: TestComponent}
+  {path: 'home/test', component: TestComponent},
+  {path: 'education/:id', component: EducationComponent},
+  {path: 'skill/:id', component: SkillsComponent}
 ]; // sets up routes constant where you define your routess
 
 // configures NgModule im  ports and exports

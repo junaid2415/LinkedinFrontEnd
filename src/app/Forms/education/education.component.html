@@ -1,1 +1,25 @@
-<div>Edu Works!s</div>
+<div class="container-fluid">
+  <h2>Add Education</h2>
+
+  <form #eduForm="ngForm" (ngSubmit)="onSubmit(eduForm.value)" novalidate>
+    {{eduForm.value | json}}
+    <div class="form-group">
+      <label>School</label>
+      <input type="text" #name="ngModel" required class="form-control" name="school" [(ngModel)]="edu.schoolName">
+    </div>
+    <div class="form-group">
+      <label>Degree</label>
+      <input type="text" #name="ngModel" required class="form-control" name="degree" [(ngModel)]="edu.degree">
+    </div>
+
+    <div class="form-group">
+      <label>Feild Of Study</label>
+      <input type="text" #name="ngModel" required class="form-control" name="FeildOFStudy" [(ngModel)]="edu.fieldOfStudy">
+    </div>
+
+
+
+
+    <button class="btn-primary">Submit</button>
+  </form>
+</div>

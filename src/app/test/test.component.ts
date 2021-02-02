@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../services/data.service';
+import { UserModel} from '../Models/userModel';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-test',
@@ -8,19 +10,26 @@ import {DataService} from '../services/data.service';
 })
 export class TestComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
-
+  constructor(private dataService: DataService, private  router: Router) { }
   ngOnInit(): void {
   }
 
+  errorMsg: any;
+  user= new UserModel();
   // tslint:disable-next-line:typedef
   onSubmit(value){
-    console.log(value);
-    value.education = [value.education];
-    value.skills = [value?.skills];
-    this.dataService.postResouce(value).subscribe((data: any[]) => {
-        console.log(data);
-        // this.users = data;
-      });
+    console.log(this.user, typeof this.user);
+    // value.education= [];
+    // value.education.push(value?.education.json);
+    // value.education = [value?.education];
+    // value.skills = [value?.skillName];
+    // let body= {value};
+
+    this.dataService.postResouce(this.user).subscribe(
+      response => console.log('Success!', response),
+      error => this.errorMsg = error.statusText
+    );
+
+    this.router.navigate([`/home`]);
   }
 }

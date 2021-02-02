@@ -1,19 +1,19 @@
 <div class="container">
-  <p>Homeworks! tadaa</p>
+  <p>Homeworks! </p>
   <div class="card" >
     <div class="card-header">
       <!--      <i class="fas fa-graduation-cap"></i>-->
       HOME
     </div>
-
   </div>
 Users
   <div style="padding: 13px;">
     <mat-spinner *ngIf="users.length === 0"></mat-spinner>
 
     <ul *ngFor="let user of users" style="margin-top:11px;">
-      <li> {{user.name}} {{user.id}}
+      <li> {{user.name}}
         <a [routerLink]="['/profile', user.id]">Go to Profile  </a>
+        <a  class="card-link" (click)="delUser(user.id)">Delete User</a>
       </li>
     </ul>
   </div>
