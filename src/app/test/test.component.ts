@@ -26,10 +26,12 @@ export class TestComponent implements OnInit {
     // let body= {value};
 
     this.dataService.postResouce(this.user).subscribe(
-      response => console.log('Success!', response),
+      response => {
+        console.log('Success!', response);
+        this.router.navigate([`/home`]);
+      },
       error => this.errorMsg = error.statusText
     );
 
-    this.router.navigate([`/home`]);
   }
 }
