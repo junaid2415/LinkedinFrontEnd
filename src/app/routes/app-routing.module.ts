@@ -5,7 +5,8 @@ import {SkillsComponent} from '../Forms/skills/skills.component';
 import {ExperienceComponent} from '../experience/experience.component';
 import {HomeComponent} from '../home/home.component';
 import {ProfileComponent} from '../profile/profile.component';
-import {TestComponent} from '../test/test.component'; // CLI imports router
+import {TestComponent} from '../Forms/AddUser/test.component';
+import {EditEduComponent} from '../Forms/edit-edu/edit-edu.component'; // CLI imports router
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -13,9 +14,10 @@ const routes: Routes = [
   {path: 'skills' , component: SkillsComponent},
   {path: 'experience', component: ExperienceComponent},
   {path: 'profile/:id', component: ProfileComponent},
-  {path: 'home/test', component: TestComponent},
+  {path: 'home/AddUser', component: TestComponent},
   {path: 'education/:id', component: EducationComponent},
-  {path: 'skill/:id', component: SkillsComponent}
+  {path: 'skill/:id', component: SkillsComponent},
+  {path: ':uid/edit/education/:id', component: EditEduComponent}
 ]; // sets up routes constant where you define your routess
 
 // configures NgModule im  ports and exports

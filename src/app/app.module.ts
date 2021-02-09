@@ -10,7 +10,8 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { TestComponent } from './test/test.component';
+import { TestComponent } from './Forms/AddUser/test.component';
+import { EditEduComponent } from './Forms/edit-edu/edit-edu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { TestComponent } from './test/test.component';
     ExperienceComponent,
     HomeComponent,
     ProfileComponent,
-    TestComponent
+    TestComponent,
+    EditEduComponent
   ],
   imports: [
     BrowserModule,

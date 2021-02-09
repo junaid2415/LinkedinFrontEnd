@@ -1,12 +1,9 @@
 import {Deserializable} from './deserializable';
 
 export  class EduModel implements Deserializable{
-  schoolName!: string;
+  school!: string;
   degree!: string;
-  fieldOfStudy!: string;
-  startDate!: string;
-  endDate!: string;
-  grade!: number;
+  fos!: string;
   deserialize(input: any): this {
     Object.assign(this, input);
     return  this;

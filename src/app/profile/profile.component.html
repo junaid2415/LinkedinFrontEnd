@@ -7,40 +7,60 @@
 <!--  <h4>{{user?.firstName}} {{user?.lastName}}</h4>-->
           <div class="card" style="width: 35rem;">
             <div class="card-body">
-              <h5 class="card-title">{{user?.name}}</h5>
+              <h5 class="card-title">{{user?.userName}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{user?.firstName}} {{user?.lastName}}</h6>
-              <p class="card-text">{{user?.tagline}}</p>
               <a href="#" class="card-link">Change Password</a>
               <a href="#" class="card-link">Edit</a>
             </div>
           </div>
 
 {{id}}
-          <h3>Education</h3>
-          <a [routerLink] ="['/education', id]" class="card-link">Add Education</a>
-          <div *ngFor="let edu of user?.education">
+  <div class="row">
+    <h3 align="left" class="col-9">Education</h3>
+<!--    <a  align="right" [routerLink] ="['/education', id]" class="card-link">Add Education</a>-->
+    <button class="btn btn-primary"  [routerLink]="['/education', id]">Add Education</button>
+  </div>
 
-          <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{edu?.schoolName}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{edu?.degree}}</h6>
-                <p class="card-text">{{edu.fieldOfStudy}}</p>
-                <a href="#" class="card-link">Edit</a>
+          <div *ngFor="let edu of user?.educations">
+
+              <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                              <div class="col-9">
+                                <h5 class="card-title">{{edu?.school}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{edu?.degree}}</h6>
+                                <p class="card-text">{{edu.fos}}</p>
+                              </div>
+                              <div>
+                                <a [routerLink]="[user.id,'/edit/education',edu.id]"
+                                   class="card-link">Edit </a>
+                                <a (click)="deleteEdu(edu?.id)" class="card-link">Delete</a>
+                              </div>
+                    </div>
+                </div>
               </div>
-            </div>
           </div>
-  <h3>  Skills</h3>
-  <a [routerLink] ="['/skill', id]" class="card-link">Add Skill</a>
+
+  <div class="row">
+    <h3 align="left" class="col-9">Skills</h3>
+    <button class="btn btn-primary"  [routerLink]="['/skill', id]">Add Skill</button>
+  </div>
+
         <div *ngFor="let skill of user?.skills">
           <div class="card" >
             <div class="card-body">
-              <h5 class="card-title">{{skill.skillName}}</h5>
-          </div>
-
+              <div class="row">
+                <div class="col-9">
+                  <h5 class="card-title">{{skill.name}} </h5>
+                </div>
+                <div>
+                  <a href="#" class="card-link">Edit</a>
+                  <a (click)="deleteSkill(skill?.id)" class="card-link">Delete</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-
 
 
 

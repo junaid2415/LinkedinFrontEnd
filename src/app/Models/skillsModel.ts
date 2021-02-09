@@ -1,7 +1,7 @@
 import {Deserializable} from './deserializable';
 
 export class SkillsModel implements Deserializable{
-  skillName!: string;
+  name!: string;
   deserialize(input: any): any{
   Object.assign(this, input);
   return  this;

@@ -12,37 +12,62 @@ import {Observable, throwError} from 'rxjs';
 
 export class DataService {
 
-  url = 'http://localhost:8080/user';
+  url = 'http://localhost:8080/api';
   constructor(private  httpCLient: HttpClient) { }
 
   // tslint:disable-next-line:typedef
   getAll() {
-    return this.httpCLient.get(this.url, {responseType: 'json'})
+    return this.httpCLient.get(`${this.url}/user/all`, {responseType: 'json'})
       .pipe( catchError((err => this.handleError(err))));
   }
 
   getUserById(id: number): Observable<any>{
-    return this.httpCLient.get(`${this.url}/${id}`)
+    return this.httpCLient.get(`${this.url}/user/${id}`)
       .pipe( catchError( (err => this.handleError(err))));
   }
 
+
+
+  // posting data
+
   postResouce(resource: any): Observable<any>{
-    return this.httpCLient.post(this.url, resource).pipe(
+    return this.httpCLient.post(`${this.url}/user`, resource).pipe(
       catchError( (err => this.handleError(err))));
   }
 
-  postEdu(resource: any, id: any): Observable<any>{
-    return this.httpCLient.post(`${this.url}/education/${id}`, resource).pipe(
-      catchError( (err => this.handleError(err))));
-  }
+
 
   postSkill(resource: any, id: any): Observable<any>{
-    return this.httpCLient.post(`${this.url}/Skills/${id}` , resource).pipe(
+      return this.httpCLient.post(`${this.url}/user/skill/${id}` , resource).pipe(
       catchError( (err => this.handleError(err))));
   }
 
+
+  // updatations
+
+  updateEdu(uid: any, eduid: any , resource: any): Observable<any> {
+    // console.log("In DataService");
+    // console.log(uid, eduid, resource);
+    return this.httpCLient.put(`${this.url}/user/${uid}/education/${eduid}` , resource).pipe(
+      catchError( (err => this.handleError(err))));
+  }
+
+
+  // deletions
   deleteUser(id: any): Observable<any>{
-    return this.httpCLient.delete(`${this.url}/${id}`).pipe(
+    return this.httpCLient.delete(`${this.url}/user/${id}`).pipe(
+      catchError( (err => this.handleError(err)))
+    );
+  }
+
+  deleteEdu(id: any): Observable<any> {
+    return this.httpCLient.delete(`${this.url}/education/${id}`).pipe(
+      catchError( (err => this.handleError(err)))
+    );
+  }
+
+  deleteSkill(id: any): Observable<any>{
+    return this.httpCLient.delete(`${this.url}/skill/${id}`).pipe(
       catchError( (err => this.handleError(err)))
     );
   }

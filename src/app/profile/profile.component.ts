@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
 import {ActivatedRoute} from '@angular/router';
 import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
@@ -8,10 +8,11 @@ import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_versio
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit{
 
   user: any;
   id: number;
+
 
   constructor(private dataService: DataService, private  activatedroute: ActivatedRoute) {
   }
@@ -31,5 +32,30 @@ export class ProfileComponent implements OnInit {
         console.log(error);
       });
 
+  }
+
+  deleteEdu(id: any){
+    this.dataService.deleteEdu(id).subscribe( (res) => {
+      console.log(res);
+      this.ngOnInit()
+    },
+      error => { console.log(error); } );
+  }
+
+  // AddEduParam(edu){
+  //   this.router.navigate([`/edit/education/${edu.id}`],edu);
+  // }
+
+
+
+
+  deleteSkill(id: any){
+    this.dataService.deleteSkill(id).subscribe(
+      (res)=> {
+        console.log(res);
+        this.ngOnInit()
+      },
+      error => console.log(error)
+    );
   }
 }

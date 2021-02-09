@@ -11,7 +11,7 @@ Users
     <mat-spinner *ngIf="users.length === 0"></mat-spinner>
 
     <ul *ngFor="let user of users" style="margin-top:11px;">
-      <li> {{user.name}}
+      <li> {{user.userName}}
         <a [routerLink]="['/profile', user.id]">Go to Profile  </a>
         <a  class="card-link" (click)="delUser(user.id)">Delete User</a>
       </li>

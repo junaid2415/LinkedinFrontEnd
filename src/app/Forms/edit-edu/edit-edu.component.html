@@ -1,0 +1,18 @@
+<form #eduForm="ngForm" novalidate (ngSubmit)="submitEdu()">
+  <div class="form-group" >
+    <label>School</label>
+    <input type="text" #name="ngModel"  name="school" class="form-control"  [(ngModel)]="edu.school">
+  </div>
+  <div class="form-group">
+    <label >Degree</label>
+      <input type="text" #name="ngModel" name="degree" class="form-control"  [(ngModel)]="edu.degree">
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput3">Feild Of Study</label>
+    <input type="text" #name="ngModel" name="fos"  class="form-control" id="formGroupExampleInput3" [(ngModel)]="edu.fos">
+  </div>
+
+  <button class="btn btn-primary">Save Changes</button>
+
+</form>

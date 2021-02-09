@@ -5,6 +5,7 @@ import {EduModel} from '../../Models/eduModel';
 import {ActivatedRoute} from '@angular/router';
 import {UserModel} from '../../Models/userModel';
 
+
 import { Router} from '@angular/router';
 import {ProfileComponent} from '../../profile/profile.component';
 @Component({
@@ -15,8 +16,9 @@ import {ProfileComponent} from '../../profile/profile.component';
 export class EducationComponent implements OnInit {
 
 
-  constructor(private  dataService: DataService,private router: Router, private activatedroute: ActivatedRoute) {
-  }
+  constructor(private  dataService: DataService, private router: Router, private activatedroute: ActivatedRoute) {
+
+}
 
 
   id: number;
@@ -26,8 +28,11 @@ export class EducationComponent implements OnInit {
   onSubmit(value){
 
     this.dataService.postEdu(this.edu, this.id).subscribe(
-      (resource)=> {console.log(resource)},
-      error => {console.log(error)}
+      (resource) => {
+        console.log(resource);
+        },
+
+      error => {console.log(error); }
     );
 
     this.router.navigate([`/profile/${this.id}`]);
