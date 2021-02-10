@@ -31,7 +31,7 @@ export class DataService {
   // posting data
 
   postResouce(resource: any): Observable<any>{
-    return this.httpCLient.post(`${this.url}/user`, resource).pipe(
+    return this.httpCLient.post(`${this.url}/user/`, resource).pipe(
       catchError( (err => this.handleError(err))));
   }
 
@@ -45,12 +45,12 @@ export class DataService {
 
   // updatations
 
-  updateEdu(uid: any, eduid: any , resource: any): Observable<any> {
-    // console.log("In DataService");
-    // console.log(uid, eduid, resource);
-    return this.httpCLient.put(`${this.url}/user/${uid}/education/${eduid}` , resource).pipe(
-      catchError( (err => this.handleError(err))));
-  }
+  // updateEdu(uid: any, eduid: any , resource: any): Observable<any> {
+  //   // console.log("In DataService");
+  //   // console.log(uid, eduid, resource);
+  //   return this.httpCLient.put(`${this.url}/user/${uid}/education/${eduid}` , resource).pipe(
+  //     catchError( (err => this.handleError(err))));
+  // }
 
 
   // deletions

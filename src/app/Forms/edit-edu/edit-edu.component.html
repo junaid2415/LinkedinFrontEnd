@@ -1,7 +1,7 @@
 <form #eduForm="ngForm" novalidate (ngSubmit)="submitEdu()">
-  <div class="form-group" >
+  <div class="form-group"  formGroup="editEdu">
     <label>School</label>
-    <input type="text" #name="ngModel"  name="school" class="form-control"  [(ngModel)]="edu.school">
+      <input type="text" #name="ngModel"  name="school" class="form-control"  [(ngModel)]="edu.school">
   </div>
   <div class="form-group">
     <label >Degree</label>
@@ -14,5 +14,10 @@
   </div>
 
   <button class="btn btn-primary">Save Changes</button>
+<br>
+
+  {{uid}}
+  <br>
+  {{id}}
 
 </form>

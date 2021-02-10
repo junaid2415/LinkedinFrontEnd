@@ -1,30 +1,32 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
 import {NotFoundError} from '../CustomErrors/notFoundError';
 import {AppError} from '../CustomErrors/appError';
+import {EduModel} from '../Models/eduModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EduServiceService {
 
-  const url = environment.backendapi;
 
+  url = 'http://localhost:8080/api';
   constructor(private  httpCLient: HttpClient) { }
 
 
   getAllEdu(){
-    this.httpCLient.get(`${this.url}/educations`).pipe( catchError( (err => this.handleError(err))));
+    return this.httpCLient.get(`${this.url}/educations/`).pipe( catchError( (err => this.handleError(err))));
   }
 
-  getEdu(id: any){
-    this.httpCLient.get(`${this.url}/education/${id}`).pipe( catchError( (err => this.handleError(err))));
+  getEdu(id: any): Observable<HttpResponse<EduModel>>{
+    return this.httpCLient.get<EduModel>(`${this.url}/education/${id}`).pipe( catchError( (err => this.handleError(err))));
   }
 
   postEdu(resource: any, id: any): Observable<any>{
+    console.log(`${this.url}/user/education/${id}`);
     return this.httpCLient.post(`${this.url}/user/education/${id}`, resource).pipe(
       catchError( (err => this.handleError(err))));
   }

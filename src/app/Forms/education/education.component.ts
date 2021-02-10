@@ -8,6 +8,7 @@ import {UserModel} from '../../Models/userModel';
 
 import { Router} from '@angular/router';
 import {ProfileComponent} from '../../profile/profile.component';
+import {EduServiceService} from '../../services/edu-service.service';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
@@ -16,9 +17,11 @@ import {ProfileComponent} from '../../profile/profile.component';
 export class EducationComponent implements OnInit {
 
 
-  constructor(private  dataService: DataService, private router: Router, private activatedroute: ActivatedRoute) {
-
-}
+  constructor(private  dataService: DataService,
+              private router: Router,
+              private activatedroute: ActivatedRoute,
+              private eduService: EduServiceService
+  ) {}
 
 
   id: number;
@@ -27,7 +30,7 @@ export class EducationComponent implements OnInit {
   user: any;
   onSubmit(value){
 
-    this.dataService.postEdu(this.edu, this.id).subscribe(
+    this.eduService.postEdu(this.edu, this.id).subscribe(
       (resource) => {
         console.log(resource);
         },

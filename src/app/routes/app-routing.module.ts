@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'home/AddUser', component: TestComponent},
   {path: 'education/:id', component: EducationComponent},
   {path: 'skill/:id', component: SkillsComponent},
-  {path: ':uid/edit/education/:id', component: EditEduComponent}
+  {path: 'edit/education/:id', component: EditEduComponent}
+
 ]; // sets up routes constant where you define your routess
 
 // configures NgModule im  ports and exports

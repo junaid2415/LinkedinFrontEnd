@@ -7,11 +7,12 @@ import { EducationComponent } from './Forms/education/education.component';
 import { SkillsComponent } from './Forms/skills/skills.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { AppRoutingModule } from './routes/app-routing.module';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TestComponent } from './Forms/AddUser/test.component';
 import { EditEduComponent } from './Forms/edit-edu/edit-edu.component';
+import { EditSkillComponent } from './Forms/edit-skill/edit-skill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { EditEduComponent } from './Forms/edit-edu/edit-edu.component';
     HomeComponent,
     ProfileComponent,
     TestComponent,
-    EditEduComponent
+    EditEduComponent,
+    EditSkillComponent
   ],
   imports: [
     BrowserModule,
