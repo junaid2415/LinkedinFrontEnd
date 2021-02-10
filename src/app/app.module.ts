@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EducationComponent } from './Forms/education/education.component';
@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TestComponent } from './Forms/AddUser/test.component';
 import { EditEduComponent } from './Forms/edit-edu/edit-edu.component';
 import { EditSkillComponent } from './Forms/edit-skill/edit-skill.component';
+import { EditUserComponent } from './Forms/edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +25,15 @@ import { EditSkillComponent } from './Forms/edit-skill/edit-skill.component';
     ProfileComponent,
     TestComponent,
     EditEduComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

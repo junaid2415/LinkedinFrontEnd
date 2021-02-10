@@ -31,11 +31,13 @@ export class SkillsComponent implements OnInit {
   onSubmit(value){
 
     this.dataService.postSkill(this.skills, this.id).subscribe(
-      (resource)=> {console.log(resource)},
+      (resource) => {
+                  console.log(resource);
+                  this.router.navigate([`/profile/${this.id}`]);
+                },
       error => {console.log(error)}
     );
 
-    this.router.navigate([`/profile/${this.id}`]);
   }
 
 }

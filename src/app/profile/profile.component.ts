@@ -1,6 +1,6 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
@@ -14,7 +14,10 @@ export class ProfileComponent implements OnInit{
   id: number;
 
 
-  constructor(private dataService: DataService, private  activatedroute: ActivatedRoute) {
+  constructor(
+    private dataService: DataService,
+    private  activatedroute: ActivatedRoute,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -47,7 +50,9 @@ export class ProfileComponent implements OnInit{
   // }
 
 
-
+goto(){
+    this.router.navigate(['/edit/user',this.id]);
+}
 
   deleteSkill(id: any){
     this.dataService.deleteSkill(id).subscribe(

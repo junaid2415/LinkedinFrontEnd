@@ -52,6 +52,11 @@ export class DataService {
   //     catchError( (err => this.handleError(err))));
   // }
 
+  // console.log("In Edu  Service");
+  updateUser(uid: any, resource: any): Observable<any> {
+    return this.httpCLient.put(`${this.url}/user/${uid}/` , resource).pipe(
+      catchError( (err => this.handleError(err))));
+  }
 
   // deletions
   deleteUser(id: any): Observable<any>{

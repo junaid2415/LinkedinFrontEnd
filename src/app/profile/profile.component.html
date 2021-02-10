@@ -10,13 +10,13 @@
               <h5 class="card-title">{{user?.userName}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{user?.firstName}} {{user?.lastName}}</h6>
               <a href="#" class="card-link">Change Password</a>
-              <a href="#" class="card-link">Edit</a>
+              <button  class="btn btn-primary  btn-info btn-sm align-self-center" (click)="goto()">Edit</button>
+<!--              <a href="#" class="card-link">Edit</a>-->
             </div>
           </div>
 
-{{id}}
   <div class="row">
-    <h3 align="left" class="col-10">Education</h3>
+    <h3 align="left" class="col-9">Education</h3>
 <!--    <a  align="right" [routerLink] ="['/education', id]" class="card-link">Add Education</a>-->
     <button  class="btn btn-primary btn-sm -align-right"  [routerLink]="['/education', id]">Add Education</button>
   </div>
@@ -27,8 +27,11 @@
                 <div class="card-body">
                     <div class="row">
                               <div class="col-8">
+                                <small>School</small>
                                 <h5 class="card-title">{{edu?.school}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{edu?.degree}}</h6>
+                                <small>Degree</small>
+                                <h5 class="card-subtitle mb-2">{{edu?.degree}}</h5>
+                                <small>Feild Of Study</small>
                                 <p class="card-text">{{edu.fos}}</p>
                               </div>
                               <div class="col-1">
@@ -45,8 +48,8 @@
           </div>
 
   <div class="row">
-    <h3 align="left" class="col-10">Skills</h3>
-    <button class="btn btn-primary btn-sm"  [routerLink]="['/skill', id]">Add Skill</button>
+    <h3 align="left" class="col-9">Skills</h3>
+    <button class="btn btn-primary"  [routerLink]="['/skill', id]">Add Skill</button>
   </div>
 
         <div *ngFor="let skill of user?.skills">

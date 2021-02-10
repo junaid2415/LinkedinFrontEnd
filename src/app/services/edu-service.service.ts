@@ -21,7 +21,7 @@ export class EduServiceService {
     return this.httpCLient.get(`${this.url}/educations/`).pipe( catchError( (err => this.handleError(err))));
   }
 
-  getEdu(id: any): Observable<HttpResponse<EduModel>>{
+  getEdu(id: any): Observable<any>{
     return this.httpCLient.get<EduModel>(`${this.url}/education/${id}`).pipe( catchError( (err => this.handleError(err))));
   }
 
@@ -32,12 +32,11 @@ export class EduServiceService {
   }
 
   updateEdu(uid: any, eduid: any , resource: any): Observable<any> {
-    // console.log("In DataService");
+    // console.log("In Edu  Service");
     // console.log(uid, eduid, resource);
-    return this.httpCLient.put(`${this.url}/user/${uid}/education/${eduid}` , resource).pipe(
+    return this.httpCLient.put(`${this.url}/user/${uid}/education/${eduid}/` , resource).pipe(
       catchError( (err => this.handleError(err))));
   }
-
 
   private handleError(err: Response): Observable<any> {
     if (err.status === 404) {

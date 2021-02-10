@@ -15,7 +15,7 @@ export class EditEduComponent implements OnInit {
 
 
 
-  edu: any;
+  edu= new EduModel();
 
   constructor(private  dataService: DataService,
               private router: Router,
@@ -37,7 +37,10 @@ export class EditEduComponent implements OnInit {
       this.uid = +params.get('uid');
     });
     console.log('Get Edu');
-    this.edu = this.eduService.getEdu(this.id);
+    this.eduService.getEdu(this.id).subscribe( res  => {
+      this.edu = res; },
+      err => {  console.log(err + "err"); }
+      );
     console.log(this.edu);
 
   }
@@ -46,8 +49,14 @@ export class EditEduComponent implements OnInit {
     console.log(this.edu);
     // this.dataService.updateEdu(this.uid, this.id , this.edu);
 
-    this.eduService.updateEdu(this.uid, this.id, this.edu);
-    // this.router.navigate(['/profile', this.uid]);
+    this.eduService.updateEdu(this.uid, this.id, this.edu).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/profile', this.uid]);
+        },
+      err => {console.log(err); }
+    );
+    // ;
   }
 
 }

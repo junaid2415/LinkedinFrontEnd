@@ -33,12 +33,13 @@ export class EducationComponent implements OnInit {
     this.eduService.postEdu(this.edu, this.id).subscribe(
       (resource) => {
         console.log(resource);
-        },
+        this.router.navigate([`/profile/${this.id}`]);
+
+      },
 
       error => {console.log(error); }
     );
 
-    this.router.navigate([`/profile/${this.id}`]);
   }
 
   ngOnInit(): void {
