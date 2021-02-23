@@ -7,7 +7,8 @@ import {HomeComponent} from '../home/home.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {TestComponent} from '../Forms/AddUser/test.component';
 import {EditEduComponent} from '../Forms/edit-edu/edit-edu.component';
-import {EditUserComponent} from '../Forms/edit-user/edit-user.component'; // CLI imports router
+import {EditUserComponent} from '../Forms/edit-user/edit-user.component';
+import {EditSkillComponent} from '../Forms/edit-skill/edit-skill.component'; // CLI imports router
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'education/:id', component: EducationComponent},
   {path: 'skill/:id', component: SkillsComponent},
   {path: 'edit/education/:id', component: EditEduComponent},
-  {path: 'edit/user/:id', component: EditUserComponent}
+  {path: 'edit/user/:id', component: EditUserComponent},
+  {path: 'edit/skill/:id', component: EditSkillComponent}
 
 ]; // sets up routes constant where you define your routess
 

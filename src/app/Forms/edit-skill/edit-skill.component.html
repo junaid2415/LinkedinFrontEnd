@@ -1,5 +1,8 @@
 <div class="container">
-  <form  formGroupName="editSkill">
+  <form  [formGroup]="editSkill" (ngSubmit)="onSubmit()">
+    <label>Skill</label>
       <input class="form-control" formControlName="name">
+    <br>
+      <button class="btn btn-primary">Save Changes</button>
   </form>
 </div>

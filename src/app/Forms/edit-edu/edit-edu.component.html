@@ -1,5 +1,5 @@
-<form #eduForm="ngForm" novalidate (ngSubmit)="submitEdu()">
-  <div class="form-group"  formGroup="editEdu">
+<form #eduForm="ngForm" novalidate  (ngSubmit)="submitEdu()">
+  <div class="form-group">
     <label>School</label>
       <input type="text" #name="ngModel"  name="school" class="form-control"  [(ngModel)]="edu.school">
   </div>

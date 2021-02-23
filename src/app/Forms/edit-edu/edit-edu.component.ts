@@ -34,7 +34,8 @@ export class EditEduComponent implements OnInit {
     });
 
     this.activatedroute.queryParamMap.subscribe( params => {
-      this.uid = +params.get('uid');
+      const y = params.get('uid');
+      this.uid = +y;
     });
     console.log('Get Edu');
     this.eduService.getEdu(this.id).subscribe( res  => {

@@ -13,6 +13,7 @@ import {Observable, throwError} from 'rxjs';
 export class DataService {
 
   url = 'http://localhost:8080/api';
+
   constructor(private  httpCLient: HttpClient) { }
 
   // tslint:disable-next-line:typedef
@@ -34,8 +35,6 @@ export class DataService {
     return this.httpCLient.post(`${this.url}/user/`, resource).pipe(
       catchError( (err => this.handleError(err))));
   }
-
-
 
   postSkill(resource: any, id: any): Observable<any>{
       return this.httpCLient.post(`${this.url}/user/skill/${id}` , resource).pipe(
@@ -71,17 +70,12 @@ export class DataService {
     );
   }
 
-  deleteSkill(id: any): Observable<any>{
-    return this.httpCLient.delete(`${this.url}/skill/${id}`).pipe(
-      catchError( (err => this.handleError(err)))
-    );
-  }
 
 
-  private handleError(err: Response): Observable<any> {
-    if (err.status === 404) {
-      return throwError(new NotFoundError());
+    private handleError(err: Response): Observable<any> {
+      if (err.status === 404) {
+        return throwError(new NotFoundError());
+      }
+      return throwError(new AppError(err));
     }
-    return throwError(new AppError(err));
-  }
 }

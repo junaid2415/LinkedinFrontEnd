@@ -2,6 +2,7 @@ import {Component, DoCheck, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
+import {SkillServiceService} from '../services/skill-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,6 +17,7 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     private dataService: DataService,
+    private skillService: SkillServiceService,
     private  activatedroute: ActivatedRoute,
     private router: Router) {
   }
@@ -55,7 +57,7 @@ goto(){
 }
 
   deleteSkill(id: any){
-    this.dataService.deleteSkill(id).subscribe(
+    this.skillService.deleteSkill(id).subscribe(
       (res)=> {
         console.log(res);
         this.ngOnInit()
